@@ -193,18 +193,53 @@ img {
     color: #aaaaaa
 }
 
-.social-icon1 {
-    font-size: 70px
+.social-icon2 {
+    color: #3b17bb 
 }
 
-.social-icon1 {
-    float: left;
-    position: relative;
-    left:500px
+.social-icon2:hover {
+    color: #aaaaaa
 }
 
-.social-icon1 {
-    float: top;
-    position: relative;
-    top:400px
+.social-icon3 {
+    color: #3b17bb 
+}
+
+.social-icon3:hover {
+    color: #aaaaaa
+}
+
+.social-icon4 {
+    color: #3b17bb 
+}
+
+.social-icon4:hover {
+    color: #aaaaaa
+}
+
+.star {
+    position: absolute;
+    top: 0;
+    color: #fff;
+    animation: animate 5s linear infinite;
+}
+
+.star::before 
+{
+    content: '\f005';
+    font-family: fontAwesome;
+    text-shadow: 0 0 5px #fff,
+    0 0 20px #fff,
+    0 0 50px #fff;
+}
+@keyframes animate
+{
+    0%
+    {
+        transform: translateY(0) rotate(0deg);
+    }
+    100%
+    {
+        transform: translateY(100vh) rotate(360deg);
+    }
 }

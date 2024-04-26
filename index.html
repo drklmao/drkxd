@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-@font-face { font-family: Minecraft; src: url('Minecraft.ttf') format('truetype'); } 
+    @font-face { font-family: Minecraft; src: url('Minecraft.ttf') format('truetype'); } 
     h1 {
          font-family: Minecraft
       }
@@ -66,28 +66,95 @@
     float: top;
     position: fixed;
     top:410px
-}
+} 
+
 .social-icon4 {
     float: left;
     position: fixed;
-    left:705px
+    left:710px
 }
 
 .social-icon4 {
     float: top;
     position: fixed;
     top:410px
-}
+} 
+html, body, .viewport {
+            width: 100%;
+            height: 100%; 
+            margin: 0;
+          }
+
+          .flex-container {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            -moz-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            -webkit-justify-content: center;
+            -moz-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+
+        #flex-item {
+           text-align: center;
+            margin: auto;
+        }
+
+        .flex-container {
+            z-index: 99;
+        }
+        .social-icon1 {
+            z-index: 10;
+        }
+
+        .social-icon2 {
+            z-index: 10;
+        } 
+        .social-icon3 {
+            z-index: 10;
+        }
+        .social-icon4 {
+            z-index: 10;
+        }
+        .stars {
+            z-index: 9;
+        }
     </style>
 </head>
 <body>
+    <iframe src="dave hangman.mp3" allow="autoplay" id="player" style="display: none"></iframe>
+      <!--Your Splash Screen-->
+      <div id="splash"  class="flex-container" 
+            style ="background: #000000 ; display: none"  >
+
+         <!--Center align Splash contents in all screen sizes-->
+             <div id="flex-item" >
+               <h1 style ="color: white;">click<h1>
+             </div>
+         </div>
+    <audio id="player" autoplay looped>
+        <source src="dave hangman.mp3" type="audio/mp3">
+   </audio>
     <h1 class ="text2">.</h1>
     <h1 class ="text3">.</h1>
     <h1 class ="text3">.</h1>
     <h1 class ="text3">.</h1>
     <h1 class ="text3">.</h1>
     <h1 class ="text3">.</h1>
-    <h1 class ="text" style="color: #aaaaaa;"> drk goat </h1>
+    <h1 class ="text" style="color: #aaaaaa;"> drk was here xd </h1>
     <h1 class ="text3">.</h1>
     <h1 class ="text3">.</h1>
     <h1 class ="text3">.</h1>
@@ -95,7 +162,7 @@
     <h1 class ="text3">.</h1>
     <h1 class ="text3">.</h1>
     <h1 class ="text3">.</h1>
-    <h1 class ="text" style="color: #aaaaaa;"> drk is not gay dont trust the fake screenshots</h1>
+    <h1 class ="text" style="color: #aaaaaa;"> drk so cool frfr trust</h1>
     <a class="social-icon1" href="https://discordapp.com/users/1012498065900441651"target="_blank">
         <ion-icon name="logo-discord"></ion-icon>
     </a>
@@ -114,22 +181,74 @@
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <script>
-        function stars(){
-            let e = document.createElement('div');
-            e.setAttribute('class','star');
-            document.body.appendChild(e);
-            e.style.left = Math.random() * + innerWidth + 'px';
+    <script>       
+     function stars(){
+        let e = document.createElement('div');
+        e.setAttribute('class','star');
+        document.body.appendChild(e);
+        e.style.left = Math.random() * + innerWidth + 'px';
 
-            setTimeout(function(){
-                document.body.removeChild(e);
-            },5000)
-        }  
+        setTimeout(function(){
+            document.body.removeChild(e);
+        },5000)
+    }  
 
-        setInterval(function(){
-            stars()
-        },100)
+    setInterval(function(){
+        stars()
+    },100)
 
-    </script>
+</script>
+
+    <script type="text/javascript">
+
+function fade(element) {
+var op = 1;  // initial opacity
+var timer = setInterval(function () {
+    if (op <= 0.1){
+        clearInterval(timer);
+
+        element.style.display = 'none';
+    }
+    element.style.opacity = op;
+    element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+    op -= op * 0.1;
+}, 50);
+}
+
+setTimeout(function(){ 
+
+         if(typeof(Storage) !== "undefined") {
+
+          console.log("Already shown" +sessionStorage.getItem('spalashShown'));
+
+           if( !sessionStorage.getItem('spalashShown') || sessionStorage.getItem('spalashShown') === null ) {  
+
+           document.getElementById('splash') .style.display = 'inline';
+
+            //Display splash
+            setTimeout(function(){   
+
+             fade(document.getElementById('splash'));
+              // document.getElementById('splash') .style.display = 'none'
+               // window.location = "http://hiteshsahu.com";
+
+             sessionStorage.setItem('spalashShown', true  );
+          }
+           , 3000);
+
+              } else {
+
+                 //Display Main Content
+                  document.getElementById('splash') .style.display = 'none'
+                    console.log("Already shown");
+                 }
+              }
+
+            else {
+                    document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+                  }
+                     }, 0);
+
+</script>
 </body>
 </html>

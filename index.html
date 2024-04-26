@@ -99,6 +99,7 @@
     position: fixed;
     top:410px
 } 
+
 html, body, .viewport {
             width: 100%;
             height: 100%; 
@@ -152,29 +153,40 @@ html, body, .viewport {
         .stars {
             z-index: 9;
         }
+        .button {
+        background-color:#000000;
+        color: #fff;
+        border:none; 
+        border-radius:10px; 
+        padding:15px;
+        min-height:400px; 
+        min-width:300px;
+    }
     </style>
 </head>
 <body>
-    <iframe src="dave hangman.mp3" allow="autoplay" id="player" style="display: none"></iframe>
-      <!--Your Splash Screen-->
       <div id="splash"  class="flex-container" 
-            style ="background: #000000 ; display: none"  >
+      style ="background: #000000 ; display: none"  >
 
-         <!--Center align Splash contents in all screen sizes-->
-             <div id="flex-item" >
-               <h1 style ="color: white;">click to enter <h1>
-             </div>
-         </div>
-    <audio id="player" autoplay looped>
-        <source src="dave hangman.mp3" type="audio/mp3">
-   </audio>
+   <!--Center align Splash contents in all screen sizes-->
+       <div id="flex-item" >
+            <button class="button" id="ASong" onClick="playPause()">
+                <audio
+                  src="dave hangman.mp3"
+                  autoplay
+                  loop
+                ></audio>
+                click to enter
+              </button>
+       </div>
+   </div>
     <h1 class ="text2">.</h1>
     <h1 class ="text3">.</h1>
     <h1 class ="text3">.</h1>
     <h1 class ="text3">.</h1>
     <h1 class ="text3">.</h1>
     <h1 class ="text3">.</h1>
-    <h1 class ="text" style="color: #aaaaaa;"> socials :P </h1>
+    <h1 class ="text" style="color: #aaaaaa;"> socials :P</h1>
     <h1 class ="text3">.</h1>
     <h1 class ="text3">.</h1>
     <h1 class ="text3">.</h1>
@@ -218,57 +230,70 @@ html, body, .viewport {
     },100)
 
 </script>
+    <script>
+  var aud = document.getElementById("ASong").children[0];
+  var isPlaying = false;
+  aud.pause();
 
-    <script type="text/javascript">
-
-function fade(element) {
-var op = 1;  // initial opacity
-var timer = setInterval(function () {
-    if (op <= 0.1){
-        clearInterval(timer);
-
-        element.style.display = 'none';
+  function playPause() {
+    if (isPlaying) {
+      aud.pause();
+    } else {
+      aud.play();
     }
-    element.style.opacity = op;
-    element.style.filter = 'alpha(opacity=' + op * 100 + ")";
-    op -= op * 0.1;
-}, 50);
-}
-
-setTimeout(function(){ 
-
-         if(typeof(Storage) !== "undefined") {
-
-          console.log("Already shown" +sessionStorage.getItem('spalashShown'));
-
-           if( !sessionStorage.getItem('spalashShown') || sessionStorage.getItem('spalashShown') === null ) {  
-
-           document.getElementById('splash') .style.display = 'inline';
-
-            //Display splash
-            setTimeout(function(){   
-
-             fade(document.getElementById('splash'));
-              // document.getElementById('splash') .style.display = 'none'
-               // window.location = "http://hiteshsahu.com";
-
-             sessionStorage.setItem('spalashShown', true  );
-          }
-           , 3000);
-
-              } else {
-
-                 //Display Main Content
-                  document.getElementById('splash') .style.display = 'none'
-                    console.log("Already shown");
-                 }
-              }
-
-            else {
-                    document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
-                  }
-                     }, 0);
-
+    isPlaying = !isPlaying;
+  }
 </script>
+<script type="text/javascript">
+
+    function fade(element) {
+    var op = 1;  // initial opacity
+    var timer = setInterval(function () {
+        if (op <= 0.1){
+            clearInterval(timer);
+    
+            element.style.display = 'none';
+        }
+        element.style.opacity = op;
+        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+        op -= op * 0.1;
+    }, 50);
+    }
+    
+    setTimeout(function(){ 
+    
+             if(typeof(Storage) !== "undefined") {
+    
+              console.log("Already shown" +sessionStorage.getItem('spalashShown'));
+    
+               if( !sessionStorage.getItem('spalashShown') || sessionStorage.getItem('spalashShown') === null ) {  
+    
+               document.getElementById('splash') .style.display = 'inline';
+    
+                //Display splash
+                setTimeout(function(){   
+    
+                 fade(document.getElementById('splash'));
+                  // document.getElementById('splash') .style.display = 'none'
+                   // window.location = "http://hiteshsahu.com";
+    
+                 sessionStorage.setItem('spalashShown', true  );
+              }
+               , 3000);
+    
+                  } else {
+    
+                     //Display Main Content
+                      document.getElementById('splash') .style.display = 'none'
+                        console.log("Already shown");
+                     }
+                  }
+    
+                else {
+                        document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+                      }
+                         }, 0);
+    
+    </script>
 </body>
 </html>

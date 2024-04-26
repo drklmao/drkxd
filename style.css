@@ -221,14 +221,14 @@ img {
     position: absolute;
     top: 0;
     color: #fff;
-    animation: animate 5s linear infinite;
+    animation: animate 5.2s linear infinite;
 }
 
 .star::before 
 {
     content: '\f005';
     font-family: fontAwesome;
-    text-shadow: 0 0 5px #fff,
+    text-shadow: 0 0 10px #fff,
     0 0 20px #fff,
     0 0 50px #fff;
 }
